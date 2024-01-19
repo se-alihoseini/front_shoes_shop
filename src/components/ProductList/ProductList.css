@@ -1,0 +1,21 @@
+.product-list {
+  display: flex;
+  justify-content: center;
+}
+
+
+.flex{
+  display: flex;
+}
+
+.flex-wrap{
+  flex-wrap: wrap;
+}
+
+.w-10{
+  width: 1000px;
+}
+
+.m-auto{
+  margin: 20px auto;
+}

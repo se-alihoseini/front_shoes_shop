@@ -1,25 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from 'react'
 
-function App() {
+import ProductList from './components/ProductList/ProductList'
+import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
+import Menu from "./components/menu/Menu";
+import Modal from "./components/modal/Modal";
+// import [useState] from 'react'
+
+const App = () => {
+  const [products, setProducts] = useState([])
+  const [show_modal, setshowModal]=useState(true)
+  const closeBtn=()=>{
+    setshowModal(false)
+  }
+  const openBtn=()=>{
+    setshowModal(true)
+  }
+
+  useEffect(() => {
+    const sendRequest = async () => {
+      const response = await fetch('http://127.0.0.1:8000/api/v1/product/')
+
+      const responoseData = await response.json()
+
+      setProducts(responoseData)
+    }
+
+    sendRequest()
+  }, [])
+
+  const getProduct = async (id) => {
+    await fetch(`http://localhost:8000/products/${id}`, {
+      method: 'GET',
+    })
+
+    setProducts(products.filter((item) => item.id !== id))
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <div className="container">
+        {/* header*/}
+        <Header open_sgn_btn={openBtn}/>
+          {show_modal && <Modal closeBtn={closeBtn}/>}
+        <hr className="solid"/>
+          <Menu/>
+        <ProductList products={products} onDelete={getProduct}/>
+        <Footer/>
+        {/* footer*/}
+      </div>
+  )
 }
 
-export default App;
+export default App

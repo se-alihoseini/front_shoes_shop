@@ -1,0 +1,86 @@
+
+header {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.brand{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.brand h1{
+  margin:10px;
+}
+
+
+.column {
+  flex: 1;
+  padding: 0 10px;
+  text-align: center;
+}
+
+
+.search-box {
+  border-radius: 20px;
+  padding: 5px;
+}
+
+button {
+  padding: 10px 20px;
+  border: 1px solid #4CAF50;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+button:nth-child(2) {
+  background-color: #4CAF50;
+  color: #fff;
+}
+
+a:hover,
+button:hover {
+  color: #0000FF; /* رنگ آبی */
+}
+
+header a:hover,
+footer a:hover {
+  background-color: #0000FF; /* رنگ آبی */
+  color: #FFFFFF; /* رنگ متن سفید */
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+hr.solid {
+  border-top: 1px solid #000000;
+  margin: 15px;
+  margin-inline: 100px;
+}
+
+
+.search-bo{
+  position: relative;
+}
+.search-image{
+  position: absolute;
+  top:5px;
+  left:170px;
+  z-index: 2;
+}
+
+.nav{
+  margin:118px 0px 0px;
+}
+
+.navStyle {
+  display: flex;
+  justify-content: space-between;
+}
+
